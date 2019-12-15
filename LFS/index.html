@@ -1,0 +1,754 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" itemscope="" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style><link rel="stylesheet" type="text/css" href="./materialize.css"><link rel="stylesheet" type="text/css" href="./template.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><script type="text/javascript">
+YII_CSRF_TOKEN='1d2e84fe496c0f89e4d3e797f6f8bfbcf309bd14';
+</script><title>Contact Page</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="apple-mobile-web-app-capable" content="yes"><style data-styled-components="">
+	.fa {
+  padding: 10px;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-instagram {display: inline-block;
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  color: white;
+}
+.rightalign {
+  margin: 10%;
+}
+</style></head><body id="dvcard-body" ng-controller="ComplexController" class="whiteTheme"><div class="vcard-template style2" id="rootElement"><div class="bgd-shadow"></div><div class="page-home page"><div class="vcard-header gradient-red-orange-bg" ng-style="getBackgroundColor();" style="background: rgb(34, 1, 98);"><div class="vcard-header-wrapper"><div class="vcard-top-info"><h4 class="top"></h4><div class="img ng-hide" ng-show="loadDemo &amp;&amp; view.avatar" ng-click="!loadDemo ?  &#39;&#39; : callAction($event,&#39;headerButton-avatar&#39;)" ng-style="{&#39;background&#39;:view.avatar?&#39;url(&#39;+view.avatar+&#39;)&#39;:&#39;none&#39;}" style="background: none;"></div><div class="img ng-hide" ng-show="!loadDemo &amp;&amp; view.avatar" ng-style="{&#39;background&#39;:view.avatar?&#39;url(&#39;+view.avatar+&#39;)&#39;:&#39;none&#39;}" style="background: none;"></div><h2 class="name dynamicTextColor ng-binding" ng-show="view.firstname || view.lastname">Lens For Sure</h2><h2 class="name dynamicTextColor ng-binding ng-hide" ng-hide="view.firstname || view.lastname">Lens For Sure</h2><h6 class="title dynamicTextColor ng-binding"></h6></div><div class="vcard-functions" ng-show="view.numbers_mobile ||  view.numbers_phone ||  view.email || ((view.city ||view.street|| view.zip|| view.country) &amp;&amp; view.show_directions)"><div class="vcard-functions-wrapper"><a class="header-button ng-hide" ng-show="loadDemo &amp;&amp; (view.numbers_mobile || view.numbers_phone)" ng-click="!loadDemo ?  &#39;&#39; : callAction($event,&#39;headerButton-call&#39;)" ng-style="{&#39;transition&#39;: loadDemo ? &#39;none&#39; : &#39;all 0.15s ease&#39;}" style="transition: all 0.15s ease 0s;"><i class="icon-phone dynamicTextColor"></i><small class="dynamicTextColor">Call</small></a><a class="header-button ng-hide" ng-show="loadDemo &amp;&amp; (view.email)" ng-click="!loadDemo ?  &#39;&#39; : callAction($event,&#39;headerButton-email&#39;)" ng-style="{&#39;transition&#39;: loadDemo ? &#39;none&#39; : &#39;all 0.15s ease&#39;}" style="transition: all 0.15s ease 0s;"><i class="icon-send dynamicTextColor"></i><small class="dynamicTextColor">Email</small></a><a href="tel:+91 810 581 0810" ng-show="!loadDemo &amp;&amp; (view.numbers_mobile || view.numbers_phone)"><i class="material-icons">phone</i><small class="dynamicTextColor">Call</small></a><a href="mailto:lensforsure@gmail.com?subject=From%20my%20vCard&amp;body=" target="_newEmail" ng-show="!loadDemo &amp;&amp; (view.email)" class="last-element"><i class="material-icons">mail</i><small class="dynamicTextColor">Email</small></a><a ng-show="((view.street || view.city )&amp;&amp; view.show_directions)" ng-click="callAction($event, &#39;mapAction&#39;)" class="ng-hide"><i class=" icon-map-pin dynamicTextColor"></i><small class="dynamicTextColor">Directions</small></a></div></div></div></div><div class="vcard-body-wrapper"><div class="vcard-body"><div ng-hide="view.numbers_mobile ||  view.numbers_phone ||  view.email || view.city ||view.street|| view.zip|| view.country || view.company || view.bio || view.website" class="ng-hide"><div class="vcard-row"><h4>Waiting for you to enter data</h4></div><div class="sk-three-bounce"><div class="sk-child sk-bounce1"></div><div class="sk-child sk-bounce2"></div><div class="sk-child sk-bounce3"></div></div></div><div id="dvcard-details"><div class="vcard-row ng-hide" ng-show="view.birthday"><i class="icon icon-birthday"></i><h4 class="ng-binding"></h4><small>Birthday</small></div><div class="vcard-row ng-hide" ng-show="view.bio"><h4 ng-bind-html="view.bio|nl2br" class="ng-binding"></h4></div><div class="vcard-separator ng-hide" ng-show="view.bio"></div><div class="vcard-row" ng-show="view.numbers_mobile"><i class="material-icons">phone</i><h4><a href="tel:+91 810 581 0810" class="ng-binding">+91 810 581 0810</a></h4><small>Mobile</small></div><div class="vcard-row pt0 ng-hide" ng-show="view.numbers_phone"><i ng-show="view.numbers_phone &amp;&amp; !view.numbers_mobile" class="icon icon-phone ng-hide"></i><h4><a href="tel:" class="ng-binding"></a></h4><small>Telephone</small></div><div class="vcard-row pt0 ng-hide" ng-show="view.numbers_fax"><h4 class="ng-binding"></h4><small>Fax</small></div><div class="vcard-separator" ng-show="view.numbers_mobile || view.numbers_phone"></div><div class="vcard-row" ng-show="view.email"><i class="material-icons">mail</i><h4><a href="mailto:lensforsure@gmail.com" target="_newLink" class="ng-binding">lensforsure@gmail.com</a></h4><small>Email</small></div><div class="vcard-separator ng-hide" ng-show="view.venue || view.city || view.state || view.zip || view.street || view.country"></div><div class="vcard-row ng-hide" ng-show="view.venue || view.city || view.state || view.zip || view.street || view.country"><label></label><i class="icon icon-event-location"></i><h4 class="ng-binding"></h4><h4 class="ng-binding"></h4><h4 class="ng-binding"><span ng-show="view.state || view.zip" class="ng-binding ng-hide"><span ng-show="view.city" class="ng-hide">,</span></span></h4><h4 class="ng-binding"></h4><div class="floated-container ng-scope ng-hide" ng-if="view.show_directions" ng-show="(view.street &amp;&amp; view.city) || (view.city &amp;&amp; view.country) || view.city || view.country"><a class="event-slim-button ripplelink left_15 mt-10" ng-style="{&#39;color&#39;: isColorLight(view.color2) ? &#39;black&#39; : view.color2}" ng-click="callAction($event, &#39;mapAction&#39;)" style="color: rgb(26, 156, 136);">
+                Show on map            </a></div></div><div class="vcard-separator ng-hide" ng-show="view.venue || view.city || view.state || view.zip || view.street || view.country"></div><div class="vcard-row" ng-show="view.website"><i class="material-icons">public</i><h4><a href="http://lensforsure.com/" target="_newLink" class="ng-binding">http://lensforsure.com/</a></h4><small>Website</small></div><div class="vcard-separator" ng-show="view.bio || view.numbers_mobile || view.numbers_phone || view.email || view.street || view.zip || view.city || view.country || view.company "></div><div id="socialmedialinksContainer"><div class="vcard-social" style="margin-bottom:20px;"><div class="socialMedia-container" ng-show="view.code.channels.length &gt; 0"><label>Social Media</label><i class="icon-social-media"></i><div class="channels-padding mt-0"><a href="http://www.facebook.com/lensforsure" class="fa fa-facebook"></a><a href="http://www.instagram.com/lensforsure" class="fa fa-instagram"></a></div></div></div></div><div class="rightalign waves-effect waves-light btn-large" onclick="window.location.href = 'https://doc-0c-6c-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/ugiqj1d3ddpju1bmpoap7r77pb2dl8su/1576425600000/03749272447429910578/*/1SQeZiAZtBtN3F1D-es1VfZBVzy0qCVMw?e=download';">Save Contact Details
+																			<i class="material-icons left">person_add</i></div></div></div><div id="gotIt"><div class="fixed-blur-bgd"><div class="dialog-container"><div class="fab-body"><div class="event-gotIt-button"></div><div class="dialog-body pull-left ng-binding"></div><a class="text-regular-blue mt-20" ng-click="closeGotItDialog()">
+                    Got it                </a></div></div></div></div></div></div></div></div><div class="page-maps page hidden"><div class="devent-map-header"><div class="event-section-title " ng-style="getBackgroundColor();" style="background: rgb(34, 1, 98);"><div class="event-content-container"><i class="icon-event-back dynamicTextColor" ng-click="switchPages(&#39;page-maps&#39;,&#39;page-home&#39;, false)"></i><div class="event-title dynamicTextColor">Location</div></div></div></div><div class="event-body"><div class="vcard-body-wrapper"><div class="vcard-body"><div id="dvcard-maps"><div><img><div ng-show="resetMap &amp;&amp; (view.venue || view.city || view.state || view.zip)" ng-click="resetMap=false; setMapUrl()" class="reset-map ng-hide">Reset map</div></div><div class="vcard-row ng-hide" ng-show="view.venue || view.city || view.state || view.zip"><label>Where</label><i class="icon icon-event-location"></i><h4 class="ng-binding"></h4><h4 class="ng-binding"><span ng-show="view.state || view.zip" class="ng-binding ng-hide"><span ng-show="view.city" class="ng-hide">,</span></span></h4><h4 class="ng-binding"></h4><input id="addressValue" type="hidden" ng-value="view.street + &#39;,&#39;  + view.city + &#39;,&#39; + view.country " value=",,"><div class="floated-container"><a class="event-slim-button ripplelink left_20 mt-10" ng-style="{&#39;color&#39;: isColorLight(view.color2) ? &#39;black&#39; : view.color2}" ng-click="callAction($event, &#39;redirectToMap&#39;)" style="color: rgb(26, 156, 136);">
+                Show directions            </a></div></div></div><div id="redirectToMaps"><div class="fixed-blur-bgd"><div class="dialog-container"><div class="fab-body"><div class="event-title">
+                                        Use Google Maps                                    </div><div class="dialog-body">
+                                        Directions will open in Google Maps.                                        Do you want to continue?                                    </div><a class="event-slim-button ripplelink mt-10 pull-right" ng-style="{&#39;color&#39;: isColorLight(view.color2) ? &#39;black&#39; : view.color2}" ng-click="dialogRedirectCallback(false)" style="color: rgb(26, 156, 136);">
+                                        No                                    </a><a class="event-slim-button ripplelink mt-10 pull-right" ng-style="{&#39;color&#39;: isColorLight(view.color2) ? &#39;black&#39; : view.color2}" ng-click="dialogRedirectCallback(true, &#39;https://maps.google.com/maps?daddr=&#39;+getMapAddress())" style="color: rgb(26, 156, 136);">
+                                        Yes                                    </a></div></div></div></div></div></div></div></div></div><script type="text/javascript" src="./Contact Page1_files/jquery.min.js.download"></script><script type="text/javascript" src="./Contact Page1_files/angular.rendering.min.js.download"></script><script type="text/javascript">
+    app.loadBasePreviewController();
+    app.filter('point2space', function () {
+        return function (input) {
+            if (input) {
+                return input.replace(/\./g, ' ');
+            }
+        }
+    });
+    app.filter('toIconName', function () {
+        return function (input) {
+            if (input) {
+                return input.replace(/\s+/g, '').toLowerCase();
+            } else
+                return ' ';
+        };
+    });
+    app.filter('dashEncode', function () {
+        return function (input) {
+            if (input) {
+                return input.replace(/ /g, "-");
+            } else
+                return ' ';
+        };
+    });
+    app.filter('prefixChannel', ['$filter', function ($filter) {
+        return function (input, name) {
+            if (input) {
+                switch (name) {
+                    case ('Twitter'):
+                        if (input.match(/twitter.com|http|www/g))
+                            return input;
+                        return $filter('prefixURL')('www.twitter.com/' + input);
+                        break;
+                    case ('Instagram'):
+                        if (input.match(/instagram.com|http|www/g))
+                            return input;
+                        return $filter('prefixURL')('www.instagram.com/' + input.replace('@', ''));
+                        break;
+                    case ('Snapchat'):
+                        if (input.match(/snapchat.com|http|www/g))
+                            return input;
+                        return $filter('prefixURL')('www.snapchat.com/add/' + input);
+                        break;
+                    case ('WeChat'):
+                        return 'weixin://dl/chat?' + input;
+                        break;
+                    case ('Skype'):
+                        return 'skype:' + input + '?add';
+                        break;
+                    case ('Line'):
+                        return $filter('prefixURL')('http://line.naver.jp/ti/p/@' + input);
+                        break;
+                    default:
+                        return $filter('prefixURL')(input);
+                        break;
+                }
+            } else
+                return ' ';
+        };
+    }]);
+    app.controller('ComplexController', function ($scope, $controller, $sce, $rootScope, $filter, previewService, $window) {
+        $scope.fullChannels = [
+            {
+                icon: "icon-channel-website",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.mywebsite.com",
+                input_label_placeholder: 'Visit our website',
+                name: "Website"
+            },
+            {
+                icon: "icon-channel-facebook",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.facebook.com/page",
+                input_label_placeholder: 'Like our page',
+                name: "Facebook"
+            },
+            {
+                icon: "icon-channel-twitter",
+                type: "handle",
+                input_prefix_label: "@",
+                input_prefix_placeholder: 'Username',
+                input_label_placeholder: 'Follow us',
+                name: "Twitter"
+            },
+            {
+                icon: "icon-channel-instagram",
+                type: "handle",
+                input_prefix_label: "@",
+                input_prefix_placeholder: 'Username',
+                input_label_placeholder: 'Follow us',
+                name: "Instagram"
+            },
+            {
+                icon: "icon-channel-snapchat",
+                type: "handle",
+                input_prefix_label: "ID",
+                input_prefix_placeholder: 'Username',
+                input_label_placeholder: 'View My Story',
+                name: "Snapchat"
+            },
+            {
+                icon: "icon-channel-youtube",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.youtube.com/user/mychannel",
+                input_label_placeholder: 'Subscribe to our channel',
+                name: "YouTube"
+            },
+            {
+                icon: "icon-channel-pinterest",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.pinterest.com/username",
+                input_label_placeholder: 'Follow us',
+                name: "Pinterest"
+            },
+            {
+                icon: "icon-channel-googleplus",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.google-plus.com/username",
+                input_label_placeholder: 'Follow us',
+                name: "Google Plus"
+            },
+            {
+                icon: "icon-channel-linkedin",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.linkedin.com/company/name",
+                input_label_placeholder: 'Join my network',
+                name: "LinkedIn"
+            },
+            {
+                icon: "icon-channel-xing",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.xing.com/company/name",
+                input_label_placeholder: 'Join my network',
+                name: "Xing"
+            },
+            {
+                icon: "icon-channel-flickr",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.flickr.com/photos/flickr",
+                input_label_placeholder: 'Follow us',
+                name: "Flickr"
+            },
+            {
+                icon: "icon-channel-vimeo",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.vimeo.com/channels/mychannel",
+                input_label_placeholder: 'Follow us',
+                name: "Vimeo"
+            },
+            {
+                icon: "icon-channel-dribbble",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.dribbble.com/company",
+                input_label_placeholder: 'View my portfolio',
+                name: "Dribbble"
+            },
+            {
+                icon: "icon-channel-vkontakte",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.vk.com/name",
+                input_label_placeholder: 'Follow us',
+                name: "VKontakte"
+            },
+            {
+                icon: "icon-channel-tripadvisor",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.tripadvisor.com/name",
+                input_label_placeholder: 'Review us',
+                name: "Tripadvisor"
+            },
+            {
+                icon: "icon-channel-wechat",
+                type: "handle",
+                input_prefix_label: "ID",
+                input_prefix_placeholder: 'User ID',
+                input_label_placeholder: 'Add me',
+                name: "WeChat"
+            },
+            {
+                icon: "icon-channel-line",
+                type: "handle",
+                input_prefix_label: "ID",
+                input_prefix_placeholder: 'User ID',
+                input_label_placeholder: 'Add me',
+                name: "Line"
+            },
+            {
+                icon: "icon-channel-reddit",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.reddit.com/username",
+                input_label_placeholder: 'Comment on my latest post',
+                name: "Reddit"
+            },
+            {
+                icon: "icon-channel-tumblr",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "https://username.tumblr.com/",
+                input_label_placeholder: 'Follow us',
+                name: "Tumblr"
+            },
+            {
+                icon: "icon-channel-github",
+                type: "url",
+                input_prefix_label: "URL",
+                input_prefix_placeholder: "www.github.com/username",
+                input_label_placeholder: 'Follow us',
+                name: "Github"
+            },
+            {
+                icon: "icon-channel-skype",
+                type: "handle",
+                input_prefix_label: "ID",
+                input_prefix_placeholder: 'User ID',
+                input_label_placeholder: 'Add me',
+                name: "Skype"
+            }
+        ];
+        function getPrefix(channelName) {
+            var keepGoing = true,
+                prefix = "";
+            angular.forEach($scope.fullChannels, function (value, key) {
+                if (keepGoing) {
+                    if (value.name == channelName) {
+                        prefix = value.input_prefix_label;
+                        keepGoing = false;
+                    }
+                }
+            });
+            return prefix;
+        }
+        function toTitleCase(str) {
+            if (str == "youtube")
+                return "YouTube";
+            if (str == "vkontakte")
+                return "VKontakte";
+            if (str == "linkedin")
+                return "LinkedIn";
+            else
+                return str.replace(/\w\S*/g, function (txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                });
+        }
+        $scope.initSocialChannels = function () {
+            $scope.channels = [];
+            if (!$scope.loadDemo && !$scope.view.code && $scope.view.socialmedialinks) {
+                if (!$scope.view.code) {
+                    $scope.view.code = {};
+                }
+                $scope.modelChannelsOld = false;
+                if (!$scope.view.code.channels) {
+                    $scope.view.code.channels = [];
+                    $scope.modelChannelsOld = true;
+                }
+                angular.forEach($scope.view.socialmedialinks, function (value, key) {
+                    var keyName = toTitleCase(key),
+                        elemExtraInfo = $scope.getExtraChannelInfo(keyName);
+
+                    var fullElemObj = {
+                        input_prefix_label: getPrefix(keyName),
+                        name: keyName,
+                        link: value,
+                        input_prefix_placeholder: elemExtraInfo.input_prefix_placeholder,
+                        input_label_placeholder: elemExtraInfo.input_label_placeholder,
+                        type: elemExtraInfo.type
+                    };
+                    $scope.channels.push(fullElemObj);
+
+                    if ($scope.modelChannelsOld) {
+                        $scope.view.code.channels.push({
+                            input_prefix_label: getPrefix(keyName),
+                            name: keyName,
+                            link: value,
+                            type: elemExtraInfo.type,
+                            label: ''
+                        });
+                    }
+                });
+            }
+        };
+        $scope.getExtraChannelInfo = function (name) {
+            for (var i = 0; i < $scope.fullChannels.length; i++) {
+                if ($scope.fullChannels[i].name == name) {
+                    return {
+                        "input_prefix_placeholder": $scope.fullChannels[i].input_prefix_placeholder,
+                        "input_label_placeholder": $scope.fullChannels[i].input_label_placeholder,
+                        "type": $scope.fullChannels[i].type
+                    }
+                }
+            }
+        };
+        $scope.initSocialChannels();
+        function getBackgroundColor() {
+            var color1 = $scope.view.color1 || '#607d8b';
+            var color1b = $scope.view.color1b || '#607d8b';
+            if (!$scope.view.show_gradient)
+                return {"background": color1};
+            else
+                return {
+                    "background": "none",
+                    "background-image": "linear-gradient(45deg," + $scope.view.color1 + " 0%," + $scope.view.color1 + " 1%," + $filter('colorLuminance')($scope.view.color1b, -0.2) + " 100%)"
+                };
+        }
+        $scope.sendByDownload = sendByDownload;
+        $scope.sendByEmail = sendByEmail;
+        $scope.getBackgroundColor = getBackgroundColor;
+        function triggerPost(action, email, callback) {
+            if (action == "download")
+                return true;
+            $.post("/handlePost/bbMQDr", {
+                action: action,
+                email: email,
+                YII_CSRF_TOKEN: YII_CSRF_TOKEN
+            }, function (result) {
+                callback(result);
+            }, "json");
+        }
+        function toggleEmailForm() {
+            $('.emailText1').toggle();
+            $('.emailText2').toggle();
+            $('.fab-body form').toggle();
+            $('.icon-event-back').toggle();
+        }
+        function sendByEmail(email) {
+
+            triggerPost("email", email, function (result) {
+                if (result.status == "success") {
+                    toggleEmailForm();
+                    window.setTimeout(function () {
+                        $scope.toggleFabStep(2, 1);
+                        toggleEmailForm();
+                        $('#saveContact .fab-step1 .icon-fab-close').click();
+                    }, 2000);
+                } else {
+
+                }
+            });
+            return false;
+        }
+        function sendByDownload() {
+            triggerPost("download");
+        }
+        $scope.toggleFabStep = function (stepOut, stepIn) {
+            $(".fab-body.fab-step" + stepOut).toggle();
+            $(".fab-body.fab-step" + stepIn).toggle();
+        };
+        $scope.$watch("view.showPreview", function (p1, p2, p3) {
+            if (p1 != undefined && p1 == 'infinite') {
+                setTimeout(function () {
+                    $(".loading-welcome.welcome-screen").show();
+                    $("#welcomeImg").fadeIn(1000);
+                }, 500)
+            } else if (p1 == undefined && p2 != undefined && p2 == 'infinite') {
+                $("#welcomeImg").hide();
+                $(".loading-welcome").fadeOut();
+            } else if ((p1 != undefined && p2 != undefined && p1 != p2 ) || (p1 != undefined && p1 != 0 && p2 == undefined && p1 != p2)) {
+                setTimeout(function () {
+                    $(".loading-welcome.welcome-screen").show();
+                    $("#welcomeImg").hide();
+                    $("#welcomeImg").fadeIn(1000);
+                    setTimeout(function () {
+                        $(".loading-welcome").fadeOut();
+                    }, 2000)
+                }, 500)
+            }
+        });
+        $scope.isColorLight = function (color) {
+            var c;
+            if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(color)) {
+                c = color.substring(1).split('');
+                if (c.length == 3) {
+                    c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+                }
+                c = '0x' + c.join('');
+
+                var r = (c >> 16) & 255,
+                    g = (c >> 8) & 255,
+                    b = c & 255;
+                var a = 1 - (0.240 * r + 0.470 * g + 0.150 * b) / 255;
+                return (a < 0.4);
+            }
+        };
+        $scope.getChannelLink = function (channel) {
+            if (!$scope.loadDemo) {
+                return $filter('prefixChannel')(channel.link, channel.name);
+            }
+            return '#channel-item-' + channel.name;
+        };
+        $scope.callAction = function (event, target) {
+            switch (target) {
+                case 'headerButton-call':
+                    if ($scope.loadDemo) {
+                        $scope.gotItText = 'Users can click on this button to call your mobile number.';
+                        $scope.toggleDialog('gotIt', $(event.currentTarget));
+                        setTimeout(function () {
+                            $('.event-gotIt-button .header-button').css({
+                                'background': $scope.view.color1
+                            })
+                        }, 0)
+                    }
+                    break;
+                case 'headerButton-email':
+                    if ($scope.loadDemo) {
+                        $scope.gotItText = 'Users can tap this button to send you an email.';
+                        $scope.toggleDialog('gotIt', $(event.currentTarget));
+                        setTimeout(function () {
+                            $('.event-gotIt-button .header-button').css({
+                                'background': $scope.view.color1
+                            })
+                        }, 0)
+                    }
+                    break;
+                case 'headerButton-avatar':
+                    if ($scope.loadDemo) {
+                        $scope.gotItText = 'Profile pictures are optional. Your image will be included when users save your contact details to their smartphone address book.';
+                        $scope.toggleDialog('gotIt', $(event.currentTarget));
+                    }
+                    break;
+                case 'shareAction':
+                    if ($scope.loadDemo) {
+                        $scope.gotItText = 'Users can tap this button to share your page.';
+                        $scope.toggleDialog('gotIt', $(event.currentTarget));
+                    }
+                    break;
+                case 'addContactAction':
+                    if ($scope.loadDemo) {
+                        $scope.gotItText = 'Your visitors can click this button to download or send your vCard.';
+                        $scope.toggleDialog('gotIt', $(event.currentTarget));
+                    }
+                    break;
+                case 'channelAction':
+                    if ($scope.loadDemo) {
+                        $scope.gotItText = 'By tapping here, users are navigated to the linked social media profile or website.';
+                        $scope.toggleDialog('gotIt', $(event.currentTarget));
+                    }
+                    break;
+                case 'redirectToMap':
+                    $scope.toggleDialog('redirectToMaps');
+                    break;
+                case 'mapAction':
+                    if ($scope.loadDemo) {
+                        if ($scope.view.street || $scope.view.city || $scope.view.country) {
+                            $scope.switchPages('page-home', 'page-maps', true);
+                            $scope.setMapUrl();
+                        } else {
+                            $scope.gotItText = "'Google Maps will open upon clicking this button.'";
+                            $scope.toggleDialog('gotIt', $(event.currentTarget));
+                        }
+                    } else {
+                        $scope.switchPages('page-home', 'page-maps', true);
+                        $scope.setMapUrl();
+                    }
+                    break;
+            }
+        };
+        $scope.getMapAddress = function () {
+            var address = "";
+            if ($scope.view) {
+                if ($scope.view.street)
+                    address += $filter('dashEncode')($scope.view.street) + ($scope.view.street_number ? "-" + $scope.view.street_number : '') + ",";
+
+                if ($scope.view.city)
+                    address += $filter('dashEncode')($scope.view.city) + ",";
+
+                if ($scope.view.state)
+                    address += $filter('dashEncode')($scope.view.state) + ",";
+
+                if ($scope.view.zip)
+                    address += $filter('dashEncode')($scope.view.zip) + ",";
+
+
+                if ($scope.view.country)
+                    address += $filter('dashEncode')($scope.view.country);
+                if (address[address.length - 1] == ',')
+                    address.slice(0, -1);
+            }
+            return address;
+        };
+        $scope.setMapUrl = function () {
+            //Google API key
+            var key = "AIzaSyC3NTJuu0bay53iHC_2j7EQuAn9Xnh7lXc",
+                zoom = 15;
+
+            if ($scope.view.city && !$scope.view.street)
+                zoom = 12;
+            if ($scope.view.country && !$scope.view.city)
+                zoom = 5;
+            if ($scope.view.country && $scope.view.zip && !$scope.view.city)
+                zoom = 12;
+            $scope.mapURL = "https://maps.googleapis.com/maps/api/staticmap?zoom=" + zoom + "&size=" + ($('.page-maps .vcard-body-wrapper').width() > 0 ? $('.page-maps .vcard-body-wrapper').width() : 320) + "x360&markers=size:mid%7Ccolor:red%7C" + $scope.getMapAddress() + "&key=" + key;
+        };
+        $scope.switchPages = function (startPage, endPage, direction) {
+            if (endPage.indexOf('home') < 0) {
+                if ($(window).innerWidth() < 690) {
+                    $('.blur-bgd-shadow').hide();
+                    $('.blur-bgd').hide();
+                } else {
+                    $(".page-maps .devent-map-header").prependTo(".page-maps .vcard-body-wrapper");
+                }
+            }
+            else {
+                $('.blur-bgd-shadow').show();
+                $('.blur-bgd').show();
+            }
+            $('.' + startPage).animate({opacity: '0'}, 700).hide();
+            $('.' + endPage).css({'display': 'block'}).animate({'opacity': '1'}, 700);
+        };
+        $scope.dialogRedirectCallback = function (proceed, url) {
+            if (proceed) {
+                if (url) {
+                    $window.open(url, '_blank');
+                }
+                $scope.closeDialog();
+            } else {
+                $scope.closeDialog();
+            }
+        };
+        $scope.toggleDialog = function (id, element) {
+            if (element) {
+                var elem = element.context.outerHTML;
+                $('#' + id + ' .dialog-container .event-gotIt-button').html(elem);
+            }
+            $($('#' + id).parent()).toggleClass('fabOnTop');
+            $('#' + id + ' .dialog-container').toggleClass('is-visible');
+            $('#' + id + ' .fixed-blur-bgd').toggle();
+        };
+        $scope.closeDialog = function () {
+            $('.dialog-container').removeClass('is-visible');
+            $('#prime.fab').removeClass('disabledClick');
+            $('.event-gotIt-button').html('');
+            $('.fixed-blur-bgd').hide();
+        };
+        $scope.closeGotItDialog = function () {
+            $('#gotIt .dialog-container').removeClass('is-visible');
+            $('#prime.fab').removeClass('disabledClick');
+            $('.event-gotIt-button').html('');
+            $('#gotIt .fixed-blur-bgd').hide();
+        };
+        function arrayContainAllUndObj(item) {
+            var count = 0;
+            for (var i = 0; i < item.length; i++) {
+                if (item[i] == undefined) {
+                    count++;
+                }
+            }
+            return count == item.length;
+        }
+        $scope.$watchGroup(['view.street', 'view.street_number', 'view.city', 'view.country', 'view.zip', 'view.state'], function (newVal, oldVal) {
+            if (!arrayContainAllUndObj(newVal) && !arrayContainAllUndObj(oldVal)) {
+                if (newVal != oldVal) {
+                    $scope.resetMap = true;
+                } else {
+                    $scope.resetMap = false;
+                }
+            }
+        });
+        $scope.setPosition = function (buttonName) {
+            if ($(window).innerWidth() < 667) {
+                var bottom = '75px',
+                    right = '17px',
+                    display = 'block';
+                if (buttonName === 'contactData') {
+                    bottom = '5px';
+                    return {}; // For contact button, do nothing as everything works with CSS, looks like.
+                } else {
+                    display = $scope.view.sharing ? 'block' : 'none';
+                }
+                if ($(window).innerWidth() < 321)
+                    right = '-50px';
+                return {
+                    'display': display,
+                    'position': 'fixed',
+                    'bottom': bottom,
+                    'right': right,
+                    'width': '80px'
+                }
+            }
+            return '';
+        };
+        $scope.ifCopySucceed = false;
+        $scope.copyLinkToClipboard = function (elem) {
+            var targetId = "_hiddenCopyText_";
+            var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+            var origSelectionStart, origSelectionEnd;
+            if (isInput) {
+            	target = elem;
+                origSelectionStart = elem.selectionStart;
+                origSelectionEnd = elem.selectionEnd;
+            } else {
+            	target = document.getElementById(targetId);
+                if (!target) {
+                    var target = document.createElement("textarea");
+                    target.style.position = "absolute";
+                    target.style.left = "-9999px";
+                    target.style.top = "0";
+                    target.id = targetId;
+                    document.body.appendChild(target);
+                }
+                target.textContent = elem.textContent;
+            }
+            var currentFocus = document.activeElement;
+            target.focus();
+            target.setSelectionRange(0, target.value.length);
+			var succeed;
+            try {
+                succeed = document.execCommand("copy");
+            } catch (e) {
+                succeed = false;
+            }
+            if (currentFocus && typeof currentFocus.focus === "function") {
+                currentFocus.focus();
+            }
+            if (isInput) {
+                elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+            } else {
+                target.textContent = "";
+            }
+            $scope.$apply(function () {
+                $scope.ifCopySucceed = succeed;
+            });
+            setTimeout(function () {
+                $scope.$apply(function () {
+                    $scope.ifCopySucceed = false;
+                });
+            }, 1500)
+        };
+        $(document).ready(function () {
+            document.getElementById("copyButton").addEventListener("click", function () {
+                $scope.copyLinkToClipboard(document.getElementById("shortUrl"));
+            });
+        })
+    });
+    if (parent && typeof parent.ImHere === "function") {
+        parent.ImHere();
+    } else {
+        SocialShareKit.init();
+    }
+    function toggleFab(id) {
+        $(id + ' .prime').toggleClass('is-active');
+        $(id + ' #prime').toggleClass('is-float');
+        $($(id).parent()).toggleClass('fabOnTop');
+        $('#prime.fab').toggleClass('disabledClick');
+        $(id + ' .fixed-blur-bgd').toggle();
+        $(id + ' .chat').toggleClass('is-visible');
+    }
+    var saveWindowOpenFunction = false;
+    $(document).ready(function () {
+        $(window).resize(function () {
+            if (window.innerWidth >= 667) {
+                $('.follow-scroll.share-container').removeAttr('style');
+            }
+        });
+        $('#prime, .icon-fab-close').click(function () {
+            var id = $($(this).closest('.fabs')).attr('id');
+            toggleFab('#' + id);
+        });
+
+        $('#prime').click(function () {
+            var id = $($(this).closest('.fabs')).attr('id');
+            if (id == 'saveContact') {
+                $(".fab-body.fab-step" + 1).show();
+                $(".fab-body.fab-step" + 2).hide();
+            }
+        });
+        $('.fixed-blur-bgd').click(function () {
+            if (event && event.target == $(this)[0]) {
+                $('.vcard-row.follow-scroll').removeClass('fabOnTop');
+                $('.prime').removeClass('is-active');
+                $('#prime').removeClass('is-float');
+                $('#prime.fab').removeClass('disabledClick');
+                $('.chat, .dialog-container').removeClass('is-visible');
+                $('.fixed-blur-bgd').hide();
+            }
+        });
+        var ink, d, x, y;
+        $(".ripplelink").click(function (e) {
+            if ($(this).find(".ink").length === 0) {
+                $(this).prepend("
+															<span class='ink'></span>");
+            }
+            ink = $(this).find(".ink");
+            ink.removeClass("animate");
+            if (!ink.height() && !ink.width()) {
+                d = Math.max($(this).outerWidth(), $(this).outerHeight());
+                ink.css({height: d, width: d});
+            }
+            x = e.pageX - $(this).offset().left - ink.width() / 2;
+            y = e.pageY - $(this).offset().top - ink.height() / 2;
+            ink.css({top: y + 'px', left: x + 'px'}).addClass("animate");
+        });
+        if (!saveWindowOpenFunction)
+            saveWindowOpenFunction = window.open;
+        $('a[rel*=external]').click(function () {
+            window.open = saveWindowOpenFunction;
+            if (navigator.userAgent.match('CriOS'))
+                return true;
+            var failed = false;
+            try {open = window.open($(this).attr('href'), '_system');
+            }
+            catch (e) {
+                failed = true;
+            }
+            if (open == null || failed == true || typeof(open) == 'undefined' || open.location == window.location)
+                alert("Download is not allowed by this scanner app. Please open this page in your default browser e.g. chrome or safari");
+            return false;
+        });
+    });
+														</script></body></html>
